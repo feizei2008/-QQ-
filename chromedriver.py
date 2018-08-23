@@ -42,4 +42,6 @@ def send_qq(to_who,msg):
 
 to_who='李四'
 msg=windll.user32.LoadImageW(0, r"11.bmp", win32con.IMAGE_BITMAP, 0, 0, win32con.LR_LOADFROMFILE)
-send_qq(to_who,msg)
+
+if msg != 0: #由于图片编码问题，图片载入失败的话，msg为0
+    send_qq(to_who,msg)
