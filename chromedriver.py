@@ -34,8 +34,8 @@ def send_qq(to_who,msg):
     setImage(msg)
     qq = win32gui.FindWindow(None, to_who)
     # 投递剪贴板消息到QQ窗体
-    win32gui.SendMessage(qq, 258, 22, 2080193)
-    win32gui.SendMessage(qq, 770, 0, 0)
+    win32gui.SendMessage(qq, 258, 22, 2080193) #258=WM_CHAR，22 ASCII 有ctrl+v的意思 SYN
+    win32gui.SendMessage(qq, 770, 0, 0) #770 =WM_PASTE
     # 模拟按下回车键
     win32gui.SendMessage(qq, win32con.WM_KEYDOWN, win32con.VK_RETURN, 0)
     win32gui.SendMessage(qq, win32con.WM_KEYUP, win32con.VK_RETURN, 0)
